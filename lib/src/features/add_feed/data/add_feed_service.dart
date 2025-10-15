@@ -63,10 +63,28 @@ class AddFeedService {
       print('Upload response status: ${response.statusCode}');
       print('Upload response data: ${response.data}');
 
-      if (response.statusCode != 200 && response.statusCode != 201) {
+      if (response.statusCode != 200 &&
+          response.statusCode != 201 &&
+          response.statusCode != 202) {
         throw Exception(
           'Upload failed with status ${response.statusCode}: ${response.data}',
         );
+      }
+
+      // Log successful upload completion
+      print('✅ Upload completed successfully!');
+      print('📊 Response Status: ${response.statusCode}');
+      print('📄 Response Headers: ${response.headers}');
+      print('📦 Response Data: ${response.data}');
+      print('🔗 Response URL: ${response.requestOptions.uri}');
+
+      // Log specific response data fields if available
+      if (response.data is Map<String, dynamic>) {
+        final responseData = response.data as Map<String, dynamic>;
+        print('📋 Response Details:');
+        responseData.forEach((key, value) {
+          print('   - $key: $value');
+        });
       }
 
       return response.data as Map<String, dynamic>;

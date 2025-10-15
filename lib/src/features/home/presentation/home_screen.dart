@@ -41,6 +41,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.red,
               onPressed: () async {
                 final result = await Navigator.pushNamed(
                   context,

@@ -214,6 +214,7 @@ class _MyFeedScreenState extends State<MyFeedScreen> {
           return Scaffold(
             appBar: AppBar(title: const Text('My Feed')),
             floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.red,
               onPressed: () async {
                 final result = await Navigator.pushNamed(
                   context,
@@ -451,7 +452,8 @@ class _MyFeedTile extends StatelessWidget {
                 ),
               ),
               Text(
-                'ID: ${feed.id} • ${_formatDate(feed.createdAt)}',
+                // 'ID: ${feed.id} • '
+                _formatDate(feed.createdAt),
                 style: TextStyle(
                   fontSize: Responsive.getSmallFontSize(context),
                   color: Colors.grey[400],
