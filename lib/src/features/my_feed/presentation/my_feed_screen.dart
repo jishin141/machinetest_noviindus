@@ -410,7 +410,17 @@ class _MyFeedTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(radius: Responsive.getAvatarRadius(context)),
+                  Container(
+                    width: Responsive.getAvatarRadius(context) * 2,
+                    height: Responsive.getAvatarRadius(context) * 2,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/profile_image.jpg'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
                   SizedBox(width: Responsive.getSpacing(context)),
                   Expanded(
                     child: Text(

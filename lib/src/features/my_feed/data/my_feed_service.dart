@@ -1,29 +1,3 @@
-// import '../../../core/network/api_client.dart';
-// import '../../home/data/models.dart';
-
-// class MyFeedService {
-//   MyFeedService({ApiClient? client}) : _client = client ?? ApiClient();
-//   final ApiClient _client;
-
-//   Future<List<FeedModel>> fetch({
-//     required String token,
-//     required int page,
-//   }) async {
-//     final r = await _client.get(
-//       'my_feed',
-//       query: {'page': '$page'},
-//       token: token,
-//     );
-//     if (r.statusCode >= 200 && r.statusCode < 300) {
-//       final data = _client.decode(r) as Map<String, dynamic>;
-//       final list = (data['data'] as List?) ?? [];
-//       return list
-//           .map((e) => FeedModel.fromJson(e as Map<String, dynamic>))
-//           .toList();
-//     }
-//     throw Exception('Failed: ${r.statusCode}');
-//   }
-// }
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../../home/data/models.dart';

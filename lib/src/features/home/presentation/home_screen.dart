@@ -33,9 +33,17 @@ class HomeScreen extends StatelessWidget {
                       provider.load();
                     }
                   },
-                  icon: const CircleAvatar(
-                    radius: 34,
-                    child: Icon(Icons.person, size: 24),
+                  icon: Container(
+                    width: 70, // 36 * 2
+                    height: 70, // 36 * 2
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/profile_image.jpg'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    child: null,
                   ),
                 ),
               ],
@@ -235,7 +243,18 @@ class _FeedTile extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(radius: Responsive.getAvatarRadius(context)),
+              CircleAvatar(
+                radius: Responsive.getAvatarRadius(context),
+                backgroundImage: feed.user.avatar != null
+                    ? NetworkImage(feed.user.avatar!)
+                    : null,
+                child: feed.user.avatar == null
+                    ? Icon(
+                        Icons.person,
+                        size: Responsive.getAvatarRadius(context),
+                      )
+                    : null,
+              ),
               SizedBox(width: Responsive.getSpacing(context)),
               Expanded(
                 child: Text(

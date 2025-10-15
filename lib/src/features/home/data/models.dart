@@ -1,23 +1,3 @@
-// class CategoryModel {
-//   final int id;
-//   final String name;
-//   CategoryModel({required this.id, required this.name});
-//   factory CategoryModel.fromJson(Map<String, dynamic> j) => CategoryModel(
-//     id: j['id'] as int,
-//     name: j['category'] as String? ?? j['name'] as String? ?? '',
-//   );
-// }
-// class CategoryModel {
-//   final String id; // make it String to match API
-//   final String title;
-
-//   CategoryModel({required this.id, required this.title});
-
-//   factory CategoryModel.fromJson(Map<String, dynamic> j) => CategoryModel(
-//     id: j['id'].toString(),
-//     title: j['title']?.toString() ?? '',
-//   );
-// }
 class CategoryModel {
   final String id;
   final String title;
